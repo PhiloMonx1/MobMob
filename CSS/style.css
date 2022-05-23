@@ -48,6 +48,12 @@ a {
 	right: 32px;
 	font-size: 24px;
 }
+/*
+/JS 영역
+*/
+#todo-list li{
+	display:flex
+}
 
 @media screen and (max-width: 800px) {
 	.navbar {

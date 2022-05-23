@@ -6,7 +6,7 @@ const todoInput = todoForm.querySelector("input");
 
 
 function submitTodos(event){
-    // event.preventDefault();
+    event.preventDefault();
     console.log(todoInput.value);
 }
 

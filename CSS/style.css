@@ -1,20 +1,25 @@
+:root {
+	--text-color: #f0f4f5;
+	--background-color: #263343;
+	--icons-color: #f0f4f5;
+}
 body {
 	margin: 0;
 }
 a {
 	text-decoration: none;
-	color: #ffffff;
+	color: var(--text-color);
 }
 .navbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #263343;
+	background-color: var(--background-color);
 	padding: 8px 12px;
 }
 .navbar_logo {
 	font-size: 2rem;
-	color: white;
+	color: var(--text-color);
 }
 .navbar_menu {
 	display: flex;
@@ -29,6 +34,7 @@ a {
 	border-radius: 5px;
 }
 .navbar_icons {
+	color: var(--icons-color);
 	display: flex;
 	list-style: none;
 	padding-left: 0;

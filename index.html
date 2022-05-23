@@ -4,13 +4,17 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
-		<title>Nav var</title>
+		<link rel="stylesheet" href="CSS/style.css" />
+		<title>MobMob</title>
+		<script
+			src="https://kit.fontawesome.com/f8591ac037.js"
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
-		<nav class="navbar">
+		<header class="navbar">
 			<div class="navbar_logo">
-				<span>🎥</span>
+				<i class="fa-solid fa-compass-drafting"></i>
 				<a href="#">MobMob</a>
 			</div>
 			<ul class="navbar_menu">
@@ -21,11 +25,26 @@
 				<li><a href="#">FAQ</a></li>
 			</ul>
 			<ul class="navbar_icons">
-				<li>🔊</li>
-				<li>💬</li>
+				<i class="fa-brands fa-github"></i>
+				<i class="fa-solid fa-file-circle-plus"></i>
 			</ul>
 			<a href="#" class="navbar_toogle">🔽</a>
-		</nav>
-		<script src="main.js"></script>
+		</header>
+		<div class="content">
+			<h2 id="clock">00:00:00</h2>
+			<form id="todo-form">
+				<input type="text" placeholder="새로운 일정을 입력하세요" required/>
+			</form>
+			<ul id="todo-list"></ul>
+			<div id="tips">
+				<li></li>
+				<li></li>
+			</div>
+		</div>
+		<script src="JS/main.js"></script>
+		<script src="JS/clock.js"></script>
+		<script src="JS/tips.js"></script>
+		<script src="JS/background.js"></script>
+		<script src="JS/todos.js"></script>
 	</body>
 </html>

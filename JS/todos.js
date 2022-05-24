@@ -29,6 +29,7 @@ function appendTodos(newTodo) {
     li.id = newTodo.id;
     const span = document.createElement("span");
     span.innerText = newTodo.text;
+    span.id ="non";
     const button = document.createElement("i")
     if (localStorage.getItem(li.id) === "true") { //checkTodos on
         button.setAttribute("class", "fa-regular fa-square-check");
@@ -65,21 +66,21 @@ function checkTodos(check) {
         localStorage.setItem(parent.id, "true")
     } else if (localStorage.getItem(parent.id) === "true") {
         check.target.className = "fa-regular fa-square";
-        bro.className = "";
+        bro.className = "non";
         localStorage.setItem(parent.id, "false")
     } else {
         alert("miss!!");
         localStorage.setItem(parent.id, "false")
     }
 }
-function deleteAll(){
-    const deletes = document.querySelectorAll(".checkLine")
+function deleteAll(){ // 다시봐도 미친 펑션 ㅅㅂ non과 checkLine 컨디로 찾아서 추적 ㄱㄱ
+    const deletes = document.querySelectorAll("#non")
     for (let i = 0; i < toDos.length; i++) {
-        if(deletes[i].className == "checkLine"){
-            console.dir(deletes[i].parentElement)
+        if(deletes[i].className === "checkLine"){
+            toDos = toDos.filter(toDos => toDos.id !== parseInt(deletes[i].parentElement.id))
             deletes[i].parentElement.remove();
-        }else{
-            console.log("삭제 x")
+            saveToDos();
+            localStorage.removeItem(deletes[i].parentElement.id)
         }
     }
 }

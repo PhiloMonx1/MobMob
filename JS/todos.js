@@ -26,8 +26,8 @@ function appendTodos(newTodo){
     const button = document.createElement("i")
     button.setAttribute("class", "fa-solid fa-circle-xmark");
     button.addEventListener("click", deleteTodos);
-    li.appendChild(span);
     li.appendChild(button);
+    li.appendChild(span);
     todoList.appendChild(li);
 }
 function deleteTodos(btn){

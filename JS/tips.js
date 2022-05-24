@@ -43,13 +43,13 @@ const tips = [
     },
 ]
 
-const tip = document.querySelector("#tips :nth-child(1)")
-const sub = document.querySelector("#tips :nth-child(2)")
+const tip = document.querySelector("#tips :nth-child(1)");
+const sub = document.querySelector("#tips :nth-child(2)");
 
 function outputTip(){
-    const random = parseInt(Math.random()*tips.length)
-    tip.innerText = tips[random].tip
-    sub.innerText = tips[random].sub
+    const random = parseInt(Math.random()*tips.length);
+    tip.innerText = tips[random].tip;
+    sub.innerText = tips[random].sub;
 }
 
-outputTip()
+outputTip();

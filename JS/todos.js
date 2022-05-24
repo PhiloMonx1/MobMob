@@ -23,8 +23,8 @@ function appendTodos(newTodo){
     li.id = newTodo.id;
     const span = document.createElement("span");
     span.innerText = newTodo.text;
-    const button = document.createElement("button");
-    button.innerText = "❌"
+    const button = document.createElement("i")
+    button.setAttribute("class", "fa-solid fa-circle-xmark");
     button.addEventListener("click", deleteTodos);
     li.appendChild(span);
     li.appendChild(button);

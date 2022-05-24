@@ -1,7 +1,7 @@
 :root {
 	--text-color: #f0f4f5;
-	--background-color: #263343;
-	--icons-color: #f0f4f5;
+	--background-color: #26334300;
+	--icons-color: #d49466;
 }
 body {
 	margin: 0;
@@ -16,6 +16,7 @@ a {
 	align-items: center;
 	background-color: var(--background-color);
 	padding: 8px 12px;
+	border-bottom: 1px solid var(--icons-color);
 }
 .navbar_logo {
 	font-size: 2rem;
@@ -30,7 +31,7 @@ a {
 	padding: 8px 12px;
 }
 .navbar_menu li:hover {
-	background-color: #d49466;
+	background-color: var(--icons-color);
 	border-radius: 5px;
 }
 .navbar_icons {
@@ -51,9 +52,29 @@ a {
 /*
 /JS 영역
 */
-#todo-list li{
-	display:flex
+.background{
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter: brightness(50%);
 }
+.content{
+	height: 70vh;
+	color: var(--text-color);
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0.8;
+}
+#clock{
+	margin: 0;
+	font-size:  8rem;
+}
+
 
 @media screen and (max-width: 800px) {
 	.navbar {
@@ -82,5 +103,8 @@ a {
 	.navbar_menu.active,
 	.navbar_icons.active {
 		display: flex;
+	}
+	#clock{
+		font-size:  3rem;
 	}
 }

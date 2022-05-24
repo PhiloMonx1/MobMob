@@ -131,6 +131,9 @@ i:hover{
 	font-size: 1em;
 	text-align: center;
 }
+.checkLine{
+	text-decoration:line-through;
+}
 
 
 @media screen and (max-width: 800px) {

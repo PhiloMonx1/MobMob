@@ -26,6 +26,7 @@ function appendTodos(newTodo){
     const button = document.createElement("i")
     if(localStorage.getItem(li.id) === "true"){ //checkTodos on
         button.setAttribute("class", "fa-regular fa-square-check");
+        span.className = "checkLine";
     }else{
         button.setAttribute("class", "fa-regular fa-square");
         localStorage.setItem(li.id, "false") //checkTodos new&off
@@ -51,11 +52,14 @@ function saveToDos(){
 }
 function checkTodos(check){
     const parent = check.target.parentElement;
+    const bro = parent.children[1];
     if(localStorage.getItem(parent.id) === "false"){
         check.target.className = "fa-regular fa-square-check";
+        bro.className = "checkLine";
         localStorage.setItem(parent.id, "true")
     }else if(localStorage.getItem(parent.id) === "true"){
         check.target.className = "fa-regular fa-square";
+        bro.className = "";
         localStorage.setItem(parent.id, "false")
     }else{
         alert("miss!!");

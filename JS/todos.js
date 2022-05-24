@@ -6,28 +6,33 @@ const todoInput = todoForm.querySelector("input");
 let toDos = [];
 const TODO_LIST = "TodoList";
 
-function submitTodos(event){
+function submitTodos(event) {
     event.preventDefault();
     const newText = todoInput.value;
     todoInput.value = "";
     const newTodo = {
-        text : newText,
-        id : Date.now()
+        text: newText,
+        id: Date.now()
     };
-    toDos.push(newTodo);
-    appendTodos(newTodo);
-    saveToDos();
+    if (toDos.length < 10) {
+        toDos.push(newTodo);
+        appendTodos(newTodo);
+        saveToDos();
+    } else {
+        alert("일정이 너무 많아요!")
+    }
+
 }
-function appendTodos(newTodo){
+function appendTodos(newTodo) {
     const li = document.createElement("li");
     li.id = newTodo.id;
     const span = document.createElement("span");
     span.innerText = newTodo.text;
     const button = document.createElement("i")
-    if(localStorage.getItem(li.id) === "true"){ //checkTodos on
+    if (localStorage.getItem(li.id) === "true") { //checkTodos on
         button.setAttribute("class", "fa-regular fa-square-check");
         span.className = "checkLine";
-    }else{
+    } else {
         button.setAttribute("class", "fa-regular fa-square");
         localStorage.setItem(li.id, "false") //checkTodos new&off
     }
@@ -40,28 +45,28 @@ function appendTodos(newTodo){
     li.appendChild(more);
     todoList.appendChild(li);
 }
-function deleteTodos(btn){
+function deleteTodos(btn) {
     const me = btn.target.parentElement;
     toDos = toDos.filter(toDos => toDos.id !== parseInt(me.id))
     me.remove();
     saveToDos();
     localStorage.removeItem(me.id) //checkTodos
 }
-function saveToDos(){
-    localStorage.setItem(TODO_LIST ,JSON.stringify(toDos))
+function saveToDos() {
+    localStorage.setItem(TODO_LIST, JSON.stringify(toDos))
 }
-function checkTodos(check){
+function checkTodos(check) {
     const parent = check.target.parentElement;
     const bro = parent.children[1];
-    if(localStorage.getItem(parent.id) === "false"){
+    if (localStorage.getItem(parent.id) === "false") {
         check.target.className = "fa-regular fa-square-check";
         bro.className = "checkLine";
         localStorage.setItem(parent.id, "true")
-    }else if(localStorage.getItem(parent.id) === "true"){
+    } else if (localStorage.getItem(parent.id) === "true") {
         check.target.className = "fa-regular fa-square";
         bro.className = "";
         localStorage.setItem(parent.id, "false")
-    }else{
+    } else {
         alert("miss!!");
         localStorage.setItem(parent.id, "false")
     }
@@ -69,7 +74,7 @@ function checkTodos(check){
 
 todoForm.addEventListener("submit", submitTodos);
 
-if(!(localStorage.getItem(TODO_LIST) == null)){
+if (!(localStorage.getItem(TODO_LIST) == null)) {
     toDos = JSON.parse(localStorage.getItem(TODO_LIST));
     toDos.forEach(appendTodos);
 }

@@ -3,6 +3,7 @@
 const todoForm = document.querySelector("#todo-form");
 const todoList = document.querySelector("#todo-list");
 const todoInput = todoForm.querySelector("input");
+const allDeleteBtn = todoList.querySelector(".super-delete")
 let toDos = [];
 const TODO_LIST = "TodoList";
 
@@ -71,8 +72,21 @@ function checkTodos(check) {
         localStorage.setItem(parent.id, "false")
     }
 }
+function deleteAll(){
+    const deletes = document.querySelectorAll(".checkLine")
+    for (let i = 0; i < toDos.length; i++) {
+        if(deletes[i].className == "checkLine"){
+            console.dir(deletes[i].parentElement)
+            deletes[i].parentElement.remove();
+        }else{
+            console.log("삭제 x")
+        }
+    }
+}
 
 todoForm.addEventListener("submit", submitTodos);
+allDeleteBtn.addEventListener("click", deleteAll);
+
 
 if (!(localStorage.getItem(TODO_LIST) == null)) {
     toDos = JSON.parse(localStorage.getItem(TODO_LIST));

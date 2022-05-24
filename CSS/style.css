@@ -81,7 +81,7 @@ li {
 }
 #clock{
 	margin: 0;
-	font-size:  8rem;
+	font-size:  10rem;
 	opacity: 0.5;
 }
 #clock:hover{
@@ -161,16 +161,16 @@ i:hover{
 		display: flex;
 	}
 	#clock{
-		font-size:  3rem;
+		font-size:  4rem;
 	}
 	#todo-list{
 		font-size: 1em;
 	}
 	#todo-form input{
-		font-size: 0.5em;
+		font-size: 1em;
 		width: 40vw;
 	}
 	#todo-form input::placeholder{
-		font-size: 0.5em;
+		font-size: 1em;
 	}
 }

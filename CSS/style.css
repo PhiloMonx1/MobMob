@@ -76,7 +76,15 @@ a {
 #clock{
 	margin: 0;
 	font-size:  8rem;
+	opacity: 0.5;
 }
+#clock:hover{
+	opacity: 0.8;
+}
+.fa-solid:hover{
+	color: var(--icons-color)
+}
+
 
 
 @media screen and (max-width: 800px) {

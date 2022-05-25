@@ -5,6 +5,7 @@ const todoList = document.querySelector("#todo-list");
 const todoInput = todoForm.querySelector("input");
 const allDeleteBtn = todoList.querySelector(".super-delete")
 let toDos = [];
+let point = 0;
 const TODO_LIST = "TodoList";
 
 function submitTodos(event) {
@@ -50,7 +51,12 @@ function appendTodos(newTodo) {
 function deleteTodos(btn) {
     const me = btn.target.parentElement;
     toDos = toDos.filter(toDos => toDos.id !== parseInt(me.id))
-    me.remove();
+    if(localStorage.getItem(me.id) === "true"){
+        me.remove();
+        point += 1;
+    }else{
+        me.remove();
+    }
     saveToDos();
     localStorage.removeItem(me.id) //checkTodos
 }
@@ -80,7 +86,13 @@ function deleteAll(){
         const checking = toDoText[j].parentElement;
         if(toDoText[j].className === "checkLine"){
             toDos = toDos.filter(toDos => toDos.id !== parseInt(checking.id))
-            checking.remove();
+            if(localStorage.getItem(checking.id) === "true"){
+                checking.remove();
+                point += 1;
+                cntPoint()
+            }else{
+                checking.remove();
+            }
             saveToDos();
             localStorage.removeItem(checking.id)
             i--// 짧아진 toDos를 따라가는 i를 if문 안에 만들고
@@ -89,10 +101,18 @@ function deleteAll(){
     }
 }
 
+function cntPoint(){
+    localStorage.setItem("point", point);
+}
+
 todoForm.addEventListener("submit", submitTodos);
 allDeleteBtn.addEventListener("click", deleteAll);
 
 if (!(localStorage.getItem(TODO_LIST) == null)) {
     toDos = JSON.parse(localStorage.getItem(TODO_LIST));
     toDos.forEach(appendTodos);
+}
+if (!(localStorage.getItem("point") == null)){
+    point = parseInt(localStorage.getItem("point"));
+    allDeleteBtn.innerText = `현재 포인트 : ${localStorage.getItem("point")}점`;
 }

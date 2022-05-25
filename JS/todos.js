@@ -29,7 +29,7 @@ function appendTodos(newTodo) {
     li.id = newTodo.id;
     const span = document.createElement("span");
     span.innerText = newTodo.text;
-    span.id ="non";
+    span.id ="span";
     const button = document.createElement("i")
     if (localStorage.getItem(li.id) === "true") { //checkTodos on
         button.setAttribute("class", "fa-regular fa-square-check");
@@ -66,22 +66,26 @@ function checkTodos(check) {
         localStorage.setItem(parent.id, "true")
     } else if (localStorage.getItem(parent.id) === "true") {
         check.target.className = "fa-regular fa-square";
-        bro.className = "non";
+        bro.className = "";
         localStorage.setItem(parent.id, "false")
     } else {
         alert("miss!!");
         localStorage.setItem(parent.id, "false")
     }
 }
-function deleteAll(){ // 다시봐도 미친 펑션 ㅅㅂ non과 checkLine 컨디로 찾아서 추적 ㄱㄱ
-    const deletes = document.querySelectorAll("#non")
+function deleteAll(){ // 다시봐도 미친 펑션 ㅅㅂ span과 checkLine 컨디로 찾아서 추적 ㄱㄱ
+    const toDoText = document.querySelectorAll("#span");
+    let j = 0; // 인덱스가 지워지면서 toDos의 길이 짧아지는 이슈
     for (let i = 0; i < toDos.length; i++) {
-        if(deletes[i].className === "checkLine"){
-            toDos = toDos.filter(toDos => toDos.id !== parseInt(deletes[i].parentElement.id))
-            deletes[i].parentElement.remove();
+        const checking = toDoText[j].parentElement;
+        if(toDoText[j].className === "checkLine"){
+            toDos = toDos.filter(toDos => toDos.id !== parseInt(checking.id))
+            checking.remove();
             saveToDos();
-            localStorage.removeItem(deletes[i].parentElement.id)
+            localStorage.removeItem(checking.id)
+            i--// 짧아진 toDos를 따라가는 i를 if문 안에 만들고
         }
+        j++// 인덱스는 J로 따로 돌려주는 것을 해결
     }
 }
 

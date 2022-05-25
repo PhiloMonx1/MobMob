@@ -108,6 +108,9 @@ function cntPoint(){
 }
 function onPoint(){
     if (!(localStorage.getItem("point") == null)){
+        if(parseInt(localStorage.getItem("point")) > 10){
+            console.log(`OMG!!! ${localStorage.getItem("point")}포인트 라구요??`);
+        }
         point = parseInt(localStorage.getItem("point"));
         allDeleteBtn.innerText = `현재 포인트 : ${localStorage.getItem("point")}점`;
     }

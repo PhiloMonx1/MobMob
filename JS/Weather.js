@@ -14,9 +14,13 @@ function okGeo(event){
         nowTemp = data.main.temp;
         cityName = data.name;
         if(nowWeather === "Clear"){
-            weather.innerText = "🌞";
+            weather.innerText = "맑음🌤";
         }else if(nowWeather === "Clouds"){
-            weather.innerText = "⛅";
+            weather.innerText = "흐림🌥";
+        }else if(nowWeather === "Rain"){
+            weather.innerText = "비🌧";
+        }else if(nowWeather === "Snow"){
+            weather.innerText = "눈❄";
         }else{
             weather.innerText = nowWeather;
         }

@@ -11,7 +11,6 @@
 			crossorigin="anonymous"
 		></script>
 	</head>
-	<body>
 		<header class="navbar">
 			<div class="navbar_logo">
 				<i class="fa-solid fa-compass-drafting"></i>
@@ -37,7 +36,12 @@
 				><i class="fa-solid fa-align-justify"></i
 			></a>
 		</header>
-		<div class="content">
+		<nav class="content">
+			<div id="weather">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
 			<h2 id="clock">00:00:00</h2>
 			<form id="todo-form">
 				<input
@@ -46,20 +50,23 @@
 					placeholder="새로운 일정을 입력하세요"
 					required
 				/>
-				<!-- <button><i class="fa-solid fa-o"></i></button> -->
 			</form>
 			<ul id="todo-list">
 				<i class="fa-brands fa-bootstrap super-delete"></i>
 			</ul>
-		</div>
-		<div id="tips">
-			<li></li>
-			<li></li>
-		</div>
+		</nav>
+		<nav class="subtent">
+			<div id="tips">
+				<li></li>
+				<li></li>
+			</div>
+		</nav>
+
 		<script src="JS/main.js"></script>
 		<script src="JS/clock.js"></script>
 		<script src="JS/tips.js"></script>
 		<script src="JS/background.js"></script>
 		<script src="JS/todos.js"></script>
+		<script src="JS/Weather.js"></script>
 	</body>
 </html>

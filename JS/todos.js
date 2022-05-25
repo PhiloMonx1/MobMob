@@ -99,10 +99,17 @@ function deleteAll(){
         }
         j++// 인덱스는 J로 따로 돌려주는 것을 해결
     }
+    onPoint()
 }
 
 function cntPoint(){
     localStorage.setItem("point", point);
+}
+function onPoint(){
+    if (!(localStorage.getItem("point") == null)){
+        point = parseInt(localStorage.getItem("point"));
+        allDeleteBtn.innerText = `현재 포인트 : ${localStorage.getItem("point")}점`;
+    }
 }
 
 todoForm.addEventListener("submit", submitTodos);
@@ -112,7 +119,4 @@ if (!(localStorage.getItem(TODO_LIST) == null)) {
     toDos = JSON.parse(localStorage.getItem(TODO_LIST));
     toDos.forEach(appendTodos);
 }
-if (!(localStorage.getItem("point") == null)){
-    point = parseInt(localStorage.getItem("point"));
-    allDeleteBtn.innerText = `현재 포인트 : ${localStorage.getItem("point")}점`;
-}
+onPoint()

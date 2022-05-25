@@ -73,7 +73,7 @@ function checkTodos(check) {
         localStorage.setItem(parent.id, "false")
     }
 }
-function deleteAll(){ // 다시봐도 미친 펑션 ㅅㅂ span과 checkLine 컨디로 찾아서 추적 ㄱㄱ
+function deleteAll(){
     const toDoText = document.querySelectorAll("#span");
     let j = 0; // 인덱스가 지워지면서 toDos의 길이 짧아지는 이슈
     for (let i = 0; i < toDos.length; i++) {
@@ -91,7 +91,6 @@ function deleteAll(){ // 다시봐도 미친 펑션 ㅅㅂ span과 checkLine 컨
 
 todoForm.addEventListener("submit", submitTodos);
 allDeleteBtn.addEventListener("click", deleteAll);
-
 
 if (!(localStorage.getItem(TODO_LIST) == null)) {
     toDos = JSON.parse(localStorage.getItem(TODO_LIST));

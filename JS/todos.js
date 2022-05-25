@@ -7,6 +7,7 @@ const allDeleteBtn = todoList.querySelector(".super-delete")
 let toDos = [];
 let point = 0;
 const TODO_LIST = "TodoList";
+const pointDle = document.querySelector(".fa-share-nodes");
 
 function submitTodos(event) {
     event.preventDefault();
@@ -111,9 +112,16 @@ function onPoint(){
         allDeleteBtn.innerText = `현재 포인트 : ${localStorage.getItem("point")}점`;
     }
 }
+function dlePoint(){
+    localStorage.setItem("point", "0");
+    point = parseInt(localStorage.getItem("point"));
+    onPoint();
+}
 
 todoForm.addEventListener("submit", submitTodos);
 allDeleteBtn.addEventListener("click", deleteAll);
+pointDle.addEventListener("click", dlePoint);
+
 
 if (!(localStorage.getItem(TODO_LIST) == null)) {
     toDos = JSON.parse(localStorage.getItem(TODO_LIST));

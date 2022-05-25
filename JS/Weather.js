@@ -13,8 +13,11 @@ function okGeo(event){
         nowWeather = data.weather[0].main;
         nowTemp = data.main.temp;
         cityName = data.name;
-        
-        weather.innerText = nowWeather;
+        if(nowWeather === "Clear"){
+            weather.innerText = "🌞";
+        }else{
+            weather.innerText = nowWeather;
+        }
         temp.innerText = `${nowTemp}°C`;
         city.innerText = cityName;
     });

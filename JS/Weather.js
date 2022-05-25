@@ -1,3 +1,5 @@
+'use strict';
+
 const weather = document.querySelector("#weather :nth-child(1)");
 const temp = document.querySelector("#weather :nth-child(2)");
 const city = document.querySelector("#weather :nth-child(3)");

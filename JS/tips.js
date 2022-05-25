@@ -59,7 +59,6 @@ function outputTip(){
 }
 
 function nextTip(){
-    let i = 0;
     if(nowIndex == (tips.length)-1){
         nowIndex = 0;
         tip.innerText = tips[nowIndex].tip;

@@ -185,4 +185,7 @@ i:hover{
 	#todo-form input::placeholder{
 		font-size: 1em;
 	}
+	#weather{
+		font-size: 1em;
+	}
 }

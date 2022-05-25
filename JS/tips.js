@@ -19,7 +19,7 @@ const tips = [
     },
     {
      tip : "원한다면 일정을 삭제할 수 있어요",
-     sub : "tip: 등록된 일정 오른쪽 ... 클릭하기",
+     sub : "tip: 등록된 일정 오른쪽 아이콘 클릭하기",
     },
     {
      tip : "삭제된 일정으론 포인트를 얻을 수 없어요",
@@ -41,15 +41,35 @@ const tips = [
      tip : "팁이 잘 안보이신다고요?",
      sub : "tip: 팁을 터치하거나 마우스를 올려보기",
     },
+    {
+     tip : "팁을 넘겨서 다른 팁을 볼 수 있어요",
+     sub : "tip: 팁 클릭하기",
+    },
 ]
 
 const tip = document.querySelector("#tips :nth-child(1)");
 const sub = document.querySelector("#tips :nth-child(2)");
+let nowIndex = 0;
 
 function outputTip(){
     const random = parseInt(Math.random()*tips.length);
     tip.innerText = tips[random].tip;
     sub.innerText = tips[random].sub;
+    nowIndex = random;
 }
+
+function nextTip(){
+    let i = 0;
+    if(nowIndex == (tips.length)-1){
+        nowIndex = 0;
+        tip.innerText = tips[nowIndex].tip;
+        sub.innerText = tips[nowIndex].sub;
+    }else{
+        tip.innerText = tips[nowIndex+1].tip;
+        sub.innerText = tips[nowIndex+1].sub;
+        nowIndex = nowIndex+1;
+    }
+}
+sub.parentElement.addEventListener("click", nextTip);
 
 outputTip();

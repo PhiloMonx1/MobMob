@@ -76,7 +76,7 @@ function checkTodos(check) {
         bro.className = "";
         localStorage.setItem(parent.id, "false")
     } else {
-        alert("miss!!");
+        console.log("miss");
         localStorage.setItem(parent.id, "false")
     }
 }

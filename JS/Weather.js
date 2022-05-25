@@ -15,6 +15,8 @@ function okGeo(event){
         cityName = data.name;
         if(nowWeather === "Clear"){
             weather.innerText = "🌞";
+        }else if(nowWeather === "Clouds"){
+            weather.innerText = "⛅";
         }else{
             weather.innerText = nowWeather;
         }

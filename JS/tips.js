@@ -72,3 +72,4 @@ function nextTip(){
 sub.parentElement.addEventListener("click", nextTip);
 
 outputTip();
+setInterval(nextTip, 6333);

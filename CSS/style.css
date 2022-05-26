@@ -4,6 +4,9 @@
 	--sub-color: #d49466;
 	--hover-color: rgba(0, 0, 0, 0.095);
 }
+.hidden{
+	display: none;
+}
 body {
 	margin: 0;
 	width: 100vw;
@@ -140,6 +143,11 @@ i:hover{
 }
 .test{
 	background-color: blueviolet;
+}
+#menuBox{
+	width: 100px;
+	height: 100px;
+	color: aqua;
 }
 
 

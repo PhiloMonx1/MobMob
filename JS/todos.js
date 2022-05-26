@@ -9,6 +9,7 @@ let point = 0;
 const TODO_LIST = "TodoList";
 const pointDle = document.querySelector(".fa-share-nodes");
 
+
 function submitTodos(event) {
     event.preventDefault();
     const newText = todoInput.value;
@@ -84,7 +85,7 @@ function deleteTodos(btn) {
 function editTodos(btn){
     const me = btn.target.parentElement.parentElement.parentElement.parentElement.parentElement;
     let input = prompt('일정을 입력하세요') 
-    if(input === null){
+    if(input === null || input === ""){
     }else{
         me.children[1].innerText = input;
         for(let i = 0; i < toDos.length; i++){
@@ -93,7 +94,6 @@ function editTodos(btn){
             }
         }
     }
-
     saveToDos()
 }
 function saveToDos() {

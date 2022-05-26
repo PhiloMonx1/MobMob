@@ -85,6 +85,12 @@ function editTodos(btn){
     const me = btn.target.parentElement.parentElement.parentElement.parentElement.parentElement;
     let input = prompt('일정을 입력하세요')
     me.children[1].innerText = input;
+    for(let i = 0; i < toDos.length; i++){
+        if(toDos[i].id === parseInt(me.id)){
+            toDos[i].text = input;
+        }
+    }
+    saveToDos()
 }
 function saveToDos() {
     localStorage.setItem(TODO_LIST, JSON.stringify(toDos))

@@ -1,5 +1,9 @@
 :root {
 	--text-color: #f0f4f5;
+	--color-op30: #f0f4f52e;
+	--color-op50: #f0f4f576;
+	--color-op70: #f0f4f5a9;
+	--color-op90: #f0f4f5de;
 	--background-color: #26334300;
 	--sub-color: #d49466;
 	--hover-color: rgba(0, 0, 0, 0.095);
@@ -19,6 +23,9 @@ a {
 li {
 	list-style: none;
 	padding-left: 0px;
+}
+i:hover{
+	color: var(--sub-color);
 }
 .navbar {
 	display: flex;
@@ -75,20 +82,19 @@ li {
 }
 .content{
 	height: 80vh;
-	color: var(--text-color);
+	color: var(--color-op70);
 	display:flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	opacity: 0.8;
 }
 #clock{
 	margin: 0;
 	font-size:  10rem;
-	opacity: 0.5;
+	color: var(--color-op50);
 }
 #clock:hover{
-	opacity: 0.9;
+	color: var(--color-op90);
 }
 #todo-list{
 	display: flex;
@@ -97,26 +103,25 @@ li {
 	font-size: 1.5em;
 }
 #todo-list li i{
-	opacity: 0.5;
+	color: var(--color-op30);
 	padding-right: 5px;
 	padding-left: 12px;
 }
+#todo-list li i:hover{
+	color: var(--sub-color);
+}
 #tips{
-	color: var(--text-color);
+	color: var(--color-op70);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	opacity: 0.6;
 }
 #tips :nth-child(2){
 	opacity: 0.5;
 }
 #tips:hover{
 	background-color: var(--hover-color);
-	opacity: 1;
-}
-i:hover{
-	color: var(--sub-color)
+	color: var(--color-op90);
 }
 #todo-form input{
 	width: 30vw;
@@ -138,7 +143,7 @@ i:hover{
 	text-decoration:line-through;
 }
 #weather{
-	opacity: 0.7;
+	color: var(--color-op50);
 	font-size: 1.5em;
 }
 .test{
@@ -147,7 +152,8 @@ i:hover{
 #menuBox{
 	width: 100px;
 	height: 100px;
-	color: aqua;
+	color: aliceblue;
+	background-color: #202124;
 }
 
 

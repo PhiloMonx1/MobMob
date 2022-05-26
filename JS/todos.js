@@ -27,14 +27,15 @@ function submitTodos(event) {
 
 }
 function appendTodos(newTodo) {
+        const menuBox = document.createElement("div")
         const ui = document.createElement("ui")
         const liDel = document.createElement("li")
         const spanDel = document.createElement("span")
         const liEdi = document.createElement("li")
         const spanEdi = document.createElement("span")
-        ui.id = "menuBox"
-        ui.classList = "hidden"
-        ui.addEventListener("click", togleMenu)
+        menuBox.id = "menuBox"
+        menuBox.classList = "hidden"
+        menuBox.addEventListener("click", togleMenu)
         spanDel.innerText = "삭제"
         spanDel.addEventListener("click", deleteTodos)
         spanEdi.innerText = "수정"
@@ -42,7 +43,8 @@ function appendTodos(newTodo) {
         liDel.appendChild(spanDel)
         liEdi.appendChild(spanEdi)
         ui.appendChild(liDel)
-        ui.appendChild(liEdi)///  
+        ui.appendChild(liEdi)
+        menuBox.appendChild(ui)
     const li = document.createElement("li");
     li.id = newTodo.id;
     const span = document.createElement("span");
@@ -60,15 +62,14 @@ function appendTodos(newTodo) {
     const more = document.createElement("i")
     more.setAttribute("class", "fa-solid fa-ellipsis");
         more.addEventListener("click", togleMenu);
-        more.appendChild(ui)
+        more.appendChild(menuBox)
     li.appendChild(button);
     li.appendChild(span);
     li.appendChild(more);
     todoList.appendChild(li);
 }
 function deleteTodos(btn) {
-    console.log(`del${btn}`)
-    const me = btn.target.parentElement.parentElement.parentElement.parentElement;
+    const me = btn.target.parentElement.parentElement.parentElement.parentElement.parentElement;
     toDos = toDos.filter(toDos => toDos.id !== parseInt(me.id))
     if(localStorage.getItem(me.id) === "true"){
         me.remove();

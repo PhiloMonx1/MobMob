@@ -18,7 +18,7 @@ body {
 }
 a {
 	text-decoration: none;
-	color: var(--text-color);
+	color: var(--color-op90);
 }
 li {
 	list-style: none;
@@ -52,7 +52,7 @@ i:hover{
 	border-radius: 5px;
 }
 .navbar_icons {
-	color: var(--text-color);
+	color: var(--color-op90);
 	display: flex;
 	list-style: none;
 	padding-left: 0;
@@ -129,9 +129,9 @@ i:hover{
 	background-color: rgba(255, 255, 255, 0);
 	outline:none;
 	border: 0;
-	border-bottom: 2px solid var(--text-color);
+	border-bottom: 2px solid var(--color-op90);
 	text-align:center;
-	color: var(--text-color);
+	color: var(--color-op90r);
 	font-size: 1.8em;
 }
 #todo-form input::placeholder{
@@ -150,10 +150,23 @@ i:hover{
 	background-color: blueviolet;
 }
 #menuBox{
-	width: 100px;
-	height: 100px;
-	color: aliceblue;
+	width: 5vw;
+	height: 10vh;
+	color: var(--color-op70);
 	background-color: #202124;
+	border-radius: 15px;
+}
+#menuBox ui{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#menuBox li{
+	margin: auto;
+	padding: 8px;
+}
+#menuBox span:hover{
+	color: var(--text-color);
 }
 
 

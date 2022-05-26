@@ -40,10 +40,10 @@ function appendTodos(newTodo) {
         spanDel.addEventListener("click", deleteTodos)
         spanEdi.innerText = "수정"
         spanEdi.addEventListener("click", editTodos)
-        liDel.appendChild(spanDel)
         liEdi.appendChild(spanEdi)
-        ui.appendChild(liDel)
+        liDel.appendChild(spanDel)
         ui.appendChild(liEdi)
+        ui.appendChild(liDel)
         menuBox.appendChild(ui)
     const li = document.createElement("li");
     li.id = newTodo.id;

@@ -62,6 +62,7 @@ function appendTodos(newTodo) {
     const more = document.createElement("i")
     more.setAttribute("class", "fa-solid fa-ellipsis");
         more.addEventListener("click", togleMenu);
+        // more.addEventListener("click", editTodos);
         more.appendChild(menuBox)
     li.appendChild(button);
     li.appendChild(span);
@@ -81,7 +82,8 @@ function deleteTodos(btn) {
     localStorage.removeItem(me.id) //checkTodos
 }
 function editTodos(btn){
-    console.log(`edi${btn}`)
+    const me = btn.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    console.dir(me)
 }
 function saveToDos() {
     localStorage.setItem(TODO_LIST, JSON.stringify(toDos))

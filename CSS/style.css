@@ -150,8 +150,8 @@ i:hover{
 	background-color: blueviolet;
 }
 #menuBox{
-	width: 5vw;
-	height: 10vh;
+	width: 100px;
+	height: 100px;
 	color: var(--color-op70);
 	background-color: #202124;
 	border-radius: 15px;
@@ -214,5 +214,10 @@ i:hover{
 	}
 	#weather{
 		font-size: 1em;
+	}
+	#menuBox{
+		width: 80px;
+		height: 80px;
+		font-size: 1.2rem;
 	}
 }

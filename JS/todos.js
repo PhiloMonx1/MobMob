@@ -104,8 +104,9 @@ function saveToDos() {
 function togleMenu(event){
     const box = event.target.firstChild;
     event.stopPropagation()
-    console.dir(box)//이벤트 캡쳐링? 버블링? 해결해야 함!
-    box.classList.toggle("hidden")
+    if(box.id === "menuBox"){
+        box.classList.toggle("hidden")
+    }
 }
 function checkTodos(check) {
     const parent = check.target.parentElement;

@@ -8,6 +8,7 @@ let toDos = [];
 let point = 0;
 const TODO_LIST = "TodoList";
 const pointDle = document.querySelector(".fa-share-nodes");
+const wellcome = `[{"text":"체크박스를 통해 일정을 완료하세요","id":1653655517702},{"text":"일정 체크 후 현재 포인트를 누르세요","id":1653655565246},{"text":"일정을 수정하거나 삭제할 수 있어요","id":1653655578431},{"text":"삭제된 일정은 포인트를 주지 않아요","id":1653655590113},{"text":"일정은 10개까지 등록돼요","id":1653655594942}]`
 
 
 function submitTodos(event) {
@@ -174,5 +175,10 @@ pointDle.addEventListener("click", dlePoint);
 if (!(localStorage.getItem(TODO_LIST) == null)) {
     toDos = JSON.parse(localStorage.getItem(TODO_LIST));
     toDos.forEach(appendTodos);
+}else{
+    localStorage.setItem(TODO_LIST, wellcome);
+    toDos = JSON.parse(localStorage.getItem(TODO_LIST));
+    toDos.forEach(appendTodos);
 }
 onPoint()
+

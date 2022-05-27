@@ -72,6 +72,7 @@ function appendTodos(newTodo) {
 }
 function deleteTodos(btn) {
     const me = btn.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    btn.stopPropagation()
     toDos = toDos.filter(toDos => toDos.id !== parseInt(me.id))
     if(localStorage.getItem(me.id) === "true"){
         me.remove();
@@ -84,6 +85,7 @@ function deleteTodos(btn) {
 }
 function editTodos(btn){
     const me = btn.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    btn.stopPropagation()
     let input = prompt('일정을 입력하세요') 
     if(input === null || input === ""){
     }else{
@@ -101,6 +103,7 @@ function saveToDos() {
 }
 function togleMenu(event){
     const box = event.target.firstChild;
+    event.stopPropagation()
     console.dir(box)//이벤트 캡쳐링? 버블링? 해결해야 함!
     box.classList.toggle("hidden")
 }
